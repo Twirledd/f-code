@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>F-Code social card (1080 x 1350)</title>
+<style>
+  @font-face { font-family: 'Bricolage'; font-weight: 700; src: url('../src/renderer/src/assets/fonts/BricolageGrotesque-Bold.ttf'); }
+  @font-face { font-family: 'Instrument'; font-weight: 400; src: url('../src/renderer/src/assets/fonts/InstrumentSans-Regular.ttf'); }
+  @font-face { font-family: 'Instrument'; font-weight: 700; src: url('../src/renderer/src/assets/fonts/InstrumentSans-Bold.ttf'); }
+
+  :root { --navy: #0b1220; --cyan: #7fe3ff; --orange: #f05138; --text: #eef3fb; --muted: #8fa0be; }
+  html, body { margin: 0; padding: 0; width: 1080px; height: 1350px; background: var(--navy); overflow: hidden; }
+  .card { position: relative; width: 1080px; height: 1350px; background: var(--navy); color: var(--text); font-family: 'Instrument', 'Segoe UI', system-ui, sans-serif; overflow: hidden; }
+  .card::before { content: ''; position: absolute; left: -220px; top: 330px; width: 1520px; height: 980px; background: radial-gradient(closest-side, rgba(127, 227, 255, 0.07), rgba(127, 227, 255, 0)); }
+
+  .top { position: absolute; left: 72px; right: 72px; top: 52px; height: 108px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { height: 108px; width: auto; margin-left: -64px; mix-blend-mode: lighten; }
+  .label { display: flex; align-items: center; gap: 14px; font-size: 22px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); }
+  .label i { width: 12px; height: 12px; border-radius: 50%; background: var(--orange); display: inline-block; }
+
+  h1 { position: absolute; left: 72px; top: 196px; margin: 0; font-family: 'Bricolage', 'Instrument', sans-serif; font-weight: 700; font-size: 80px; line-height: 1.05; letter-spacing: -0.02em; color: #f6f9ff; white-space: nowrap; }
+  h1 em { font-style: normal; color: var(--orange); }
+  .sub { position: absolute; left: 72px; top: 304px; margin: 0; font-size: 40px; line-height: 1.25; color: #b9c7e2; white-space: nowrap; }
+
+  .frame { position: absolute; left: 72px; top: 400px; width: 936px; height: 585px; box-sizing: border-box; border: 2px solid rgba(127, 227, 255, 0.85); border-radius: 24px; overflow: hidden; background: #070b17;
+           box-shadow: 0 0 0 1px rgba(127, 227, 255, 0.08), 0 0 80px rgba(127, 227, 255, 0.22), 0 32px 80px rgba(0, 0, 0, 0.55); }
+  .frame img { display: block; width: 100%; height: 100%; }
+
+  .inset { position: absolute; left: 824px; top: 826px; width: 196px; height: 404px; box-sizing: border-box; border: 2px solid var(--cyan); border-radius: 30px; overflow: hidden; background-color: #070b17;
+           background-image: url('../assets/screenshots/simulator-canvas-dark.png'); background-repeat: no-repeat; background-size: 1176px 735px; background-position: -690px -123px;
+           box-shadow: 0 0 60px rgba(127, 227, 255, 0.3), 0 24px 60px rgba(0, 0, 0, 0.65); }
+
+  .chips { position: absolute; left: 72px; top: 1034px; width: 700px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .chip { box-sizing: border-box; padding: 11px 24px; border: 2px solid rgba(127, 227, 255, 0.7); border-radius: 999px; font-size: 26px; font-weight: 700; color: var(--cyan); white-space: nowrap; }
+
+  .foot { position: absolute; left: 72px; right: 72px; bottom: 48px; font-size: 24px; color: var(--muted); letter-spacing: 0.01em; }
+  .foot b { color: var(--cyan); font-weight: 400; padding: 0 8px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <img class="logo" src="../assets/brand/f-code-logo-light.png" alt="F-Code">
+      <div class="label"><i></i>Xcode-style Swift IDE for Windows</div>
+    </div>
+
+    <h1>Write <em>Swift</em> on Windows.</h1>
+    <p class="sub">See it run on a real iPhone Simulator.</p>
+
+    <div class="frame"><img src="../assets/screenshots/debugger.png" alt="F-Code paused on a breakpoint"></div>
+    <div class="inset"></div>
+
+    <div class="chips">
+      <span class="chip">Official Swift toolchain</span>
+      <span class="chip">LLDB debugging</span>
+      <span class="chip">Real iOS Simulator over SSH</span>
+    </div>
+
+    <div class="foot">github.com/Twirledd/f-code<b>·</b>MIT<b>·</b>@TomLyonsLF</div>
+  </div>
+</body>
+</html>
