@@ -1,0 +1,27 @@
+appId: dev.fcode.windows
+productName: F-Code
+directories:
+  output: dist
+  buildResources: build
+files:
+  - out/**
+  - package.json
+  - build/icon.ico
+afterPack: scripts/after-pack.cjs
+extraResources:
+  - from: swiftui-shim
+    to: swiftui-shim
+    filter: ['**/*', '!.build/**']
+  - from: scripts/sim-headless
+    to: sim-headless
+    filter: ['mac_*.sh']
+win:
+  # Unsigned build; skipping this avoids electron-builder's winCodeSign toolkit, whose
+  # extraction needs symlink privileges (Developer Mode / admin) on Windows.
+  signAndEditExecutable: false
+  target:
+    - nsis
+    - portable
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true

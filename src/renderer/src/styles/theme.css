@@ -1,0 +1,117 @@
+/* FrontierFlow theme (Lyons Frontier brand tokens): dark = void/midnight/deep with ice-blue accents,
+   light = the Frontier Flow app palette. Brand source: brand/BRAND_GUIDE.md. */
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('../assets/fonts/InstrumentSans-Regular.ttf') format('truetype');
+  font-weight: 400 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('../assets/fonts/InstrumentSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('../assets/fonts/BricolageGrotesque-Bold.ttf') format('truetype');
+  font-weight: 600 800;
+  font-display: swap;
+}
+
+:root {
+  --font-ui: 'Instrument Sans', 'Segoe UI Variable Text', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', 'Cascadia Mono', Consolas, 'Courier New', monospace;
+
+  --titlebar-height: 38px;
+  --toolbar-height: 52px;
+  --navbar-width: 260px;
+  --inspector-width: 260px;
+  --debug-height: 240px;
+
+  --bg-window: #070b17;
+  --bg-toolbar: #0c1428;
+  --bg-sidebar: #0a1122;
+  --bg-sidebar-alt: #0c1428;
+  --bg-editor: #070b17;
+  --bg-tabbar: #0a1122;
+  --bg-tab-active: #070b17;
+  --bg-panel: #0a1122;
+  --bg-console: #03050b;
+  --bg-input: #101a2c;
+  --bg-hover: rgba(127, 227, 255, 0.07);
+  --bg-selected: #1d4ed8;
+  --bg-selected-inactive: #19263b;
+  --bg-row-alt: rgba(143, 160, 190, 0.04);
+  --bg-overlay: rgba(3, 5, 11, 0.65);
+
+  --border: #1a2540;
+  --border-strong: #2a3a5e;
+  --divider: #03050b;
+
+  --text: #e8eef9;
+  --text-secondary: #8fa0be;
+  --text-tertiary: #62728f;
+  --text-on-selected: #ffffff;
+
+  --accent: #3e7bff;
+  --accent-text: #93b8ff;
+  --ice: #7fe3ff;
+  --green: #30d158;
+  --red: #ff6b61;
+  --orange: #ffa94d;
+  --yellow: #ffd60a;
+  --purple: #b79cff;
+  --teal: #7fe3ff;
+
+  --issue-error: #ff6b61;
+  --issue-warning: #ffd60a;
+  --issue-note: #8fa0be;
+
+  --radius: 6px;
+  --radius-sm: 4px;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.55);
+}
+
+:root[data-theme='light'] {
+  --bg-window: #ffffff;
+  --bg-toolbar: #e9eff9;
+  --bg-sidebar: #f2f6fc;
+  --bg-sidebar-alt: #e9eff9;
+  --bg-editor: #ffffff;
+  --bg-tabbar: #e9eff9;
+  --bg-tab-active: #ffffff;
+  --bg-panel: #f2f6fc;
+  --bg-console: #ffffff;
+  --bg-input: #ffffff;
+  --bg-hover: rgba(20, 38, 64, 0.06);
+  --bg-selected: #1d4ed8;
+  --bg-selected-inactive: #dce4f0;
+  --bg-row-alt: rgba(20, 38, 64, 0.025);
+  --bg-overlay: rgba(20, 38, 64, 0.3);
+
+  --border: #dce4f0;
+  --border-strong: #c5d1e4;
+  --divider: #c5d1e4;
+
+  --text: #142640;
+  --text-secondary: #52647c;
+  --text-tertiary: #8493a8;
+  --text-on-selected: #ffffff;
+
+  --accent: #1d4ed8;
+  --accent-text: #1d4ed8;
+  --ice: #087a91;
+  --green: #146c43;
+  --red: #b42318;
+  --orange: #8a4b00;
+  --yellow: #8a4b00;
+  --purple: #5b3fc4;
+  --teal: #087a91;
+
+  --issue-error: #b42318;
+  --issue-warning: #8a4b00;
+  --issue-note: #52647c;
+  --shadow: 0 10px 40px rgba(20, 38, 64, 0.18);
+}

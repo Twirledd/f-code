@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 548" width="960" height="548" role="img" aria-labelledby="t d">
+  <title id="t">How F-Code works</title>
+  <desc id="d">The Windows PC runs the F-Code interface, main process and a token-protected loopback proxy. Over SSH it sends your package to a Mac, which builds with Xcode and runs the real iOS Simulator. Touch and video travel back through a tunnel.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1.5 L8.5 5 L1 8.5 Z" fill="#7fe3ff"/>
+    </marker>
+    <linearGradient id="winZone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f1b36"/>
+      <stop offset="1" stop-color="#0a1226"/>
+    </linearGradient>
+    <linearGradient id="macZone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101c3d"/>
+      <stop offset="1" stop-color="#0a1226"/>
+    </linearGradient>
+    <style>
+      text { font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif; }
+      .zone-title { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; fill: #7fe3ff; }
+      .zone-sub { font-size: 13px; fill: #8fa0be; }
+      .box { fill: #12203f; stroke: #2a3f6f; stroke-width: 1.2; }
+      .name { font-size: 17px; font-weight: 600; fill: #e8eef9; }
+      .sub { font-size: 13px; fill: #9db0d0; }
+      .link { stroke: #7fe3ff; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .pill { fill: #0a1226; stroke: #2a3f6f; stroke-width: 1.2; }
+      .pill-t { font-size: 12.5px; font-weight: 600; fill: #cfe0ff; text-anchor: middle; }
+      .pill-s { font-size: 12px; fill: #8fa0be; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="960" height="548" rx="22" fill="#050914"/>
+
+  <!-- Windows PC -->
+  <rect x="24" y="24" width="360" height="500" rx="20" fill="url(#winZone)" stroke="#1d2c52" stroke-width="1.5"/>
+  <text x="48" y="54" class="zone-title">WINDOWS PC</text>
+  <text x="48" y="73" class="zone-sub" dy="2">Everything you see and type</text>
+
+  <rect x="48" y="104" width="312" height="60" rx="12" class="box"/>
+  <circle cx="68" cy="134" r="5" fill="#7fe3ff"/>
+  <text x="84" y="131" class="name">Renderer</text>
+  <text x="84" y="150" class="sub">React + Monaco editor</text>
+
+  <rect x="48" y="238" width="312" height="60" rx="12" class="box"/>
+  <circle cx="68" cy="268" r="5" fill="#7fe3ff"/>
+  <text x="84" y="265" class="name">Main process</text>
+  <text x="84" y="284" class="sub">Toolchain, SwiftPM, LSP, debugger</text>
+
+  <rect x="48" y="440" width="312" height="60" rx="12" class="box"/>
+  <circle cx="68" cy="470" r="5" fill="#7fe3ff"/>
+  <text x="84" y="467" class="name">Loopback auth proxy</text>
+  <text x="84" y="486" class="sub">Random port, per-session token</text>
+
+  <!-- Windows internal links -->
+  <path class="link" d="M204 164 V238" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <rect x="140" y="184" width="128" height="34" rx="17" class="pill"/>
+  <text x="204" y="205" class="pill-t">validated IPC</text>
+
+  <path class="link" d="M204 298 V440" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <rect x="136" y="352" width="136" height="34" rx="17" class="pill"/>
+  <text x="204" y="373" class="pill-t">screen + touch</text>
+
+  <!-- Mac -->
+  <rect x="576" y="24" width="360" height="500" rx="20" fill="url(#macZone)" stroke="#1d2c52" stroke-width="1.5"/>
+  <text x="600" y="54" class="zone-title">MAC ON YOUR NETWORK</text>
+  <text x="600" y="73" class="zone-sub" dy="2">Does the Apple-platform work</text>
+
+  <rect x="600" y="104" width="312" height="60" rx="12" class="box"/>
+  <circle cx="620" cy="134" r="5" fill="#3e7bff"/>
+  <text x="636" y="131" class="name">sshd</text>
+  <text x="636" y="150" class="sub">Remote Login (SSH)</text>
+
+  <rect x="600" y="188" width="312" height="60" rx="12" class="box"/>
+  <circle cx="620" cy="218" r="5" fill="#3e7bff"/>
+  <text x="636" y="215" class="name">Helper scripts</text>
+  <text x="636" y="234" class="sub">~/tomcode-sim/*.sh</text>
+
+  <rect x="600" y="272" width="312" height="60" rx="12" class="box"/>
+  <circle cx="620" cy="302" r="5" fill="#3e7bff"/>
+  <text x="636" y="299" class="name">Xcode</text>
+  <text x="636" y="318" class="sub">xcodebuild + simctl</text>
+
+  <rect x="600" y="356" width="312" height="60" rx="12" class="box"/>
+  <circle cx="620" cy="386" r="5" fill="#3e7bff"/>
+  <text x="636" y="383" class="name">iOS Simulator</text>
+  <text x="636" y="402" class="sub">Your app, running for real</text>
+
+  <rect x="600" y="440" width="312" height="60" rx="12" class="box"/>
+  <circle cx="620" cy="470" r="5" fill="#3e7bff"/>
+  <text x="636" y="467" class="name">WebDriverAgent</text>
+  <text x="636" y="486" class="sub">Touch and video on :8100</text>
+
+  <!-- Mac internal links -->
+  <path class="link" d="M756 164 V188" marker-end="url(#arrow)"/>
+  <path class="link" d="M756 248 V272" marker-end="url(#arrow)"/>
+  <path class="link" d="M756 332 V356" marker-end="url(#arrow)"/>
+  <path class="link" d="M756 416 V440" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+
+  <!-- Windows to Mac -->
+  <path class="link" d="M360 268 H480 V134 H600" marker-end="url(#arrow)"/>
+  <rect x="404" y="176" width="152" height="52" rx="14" class="pill"/>
+  <text x="480" y="198" class="pill-t">tar over ssh</text>
+  <text x="480" y="216" class="pill-s">sync, build, run</text>
+
+  <path class="link" d="M360 470 H600" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <rect x="404" y="438" width="152" height="52" rx="14" class="pill"/>
+  <text x="480" y="460" class="pill-t">ssh -L tunnel</text>
+  <text x="480" y="478" class="pill-s">touch + MJPEG video</text>
+</svg>

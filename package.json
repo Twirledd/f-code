@@ -1,0 +1,40 @@
+{
+  "name": "f-code",
+  "productName": "F-Code",
+  "version": "1.0.0",
+  "description": "F-Code: an Xcode-style Swift IDE for Windows, with a remote-Mac iOS Simulator bridge.",
+  "main": "./out/main/index.js",
+  "author": "Tom Lyons",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "smoke": "node scripts/smoke.mjs",
+    "dist": "electron-vite build && electron-builder --win",
+    "test:security": "node scripts/security-test.mjs"
+  },
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "monaco-editor": "^0.52.2",
+    "vscode-jsonrpc": "^8.2.1",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.3.1",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^2.3.0",
+    "playwright-core": "^1.64.1",
+    "rcedit": "^5.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.14"
+  }
+}

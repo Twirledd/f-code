@@ -1,0 +1,22 @@
+node_modules/
+out/
+dist/
+*.log
+*.tsbuildinfo
+__pycache__/
+.DS_Store
+.vite/
+
+scripts/*.log
+scripts/.smoke-userdata/
+scripts/shots/
+.build/
+.swiftpm/
+.smoke-userdata/
+
+# local installs and private working notes
+F-Code/
+Tom-Code/
+audit/
+CHECKPOINT.md
+QUICKSTART.md
