@@ -451,7 +451,13 @@ function MacSettings({ copy, copied }: { copy: (t: string) => void; copied?: str
       setBusy(false)
     }
   }
-  const authCmd = pub ? `mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo '${pub}' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys` : ''
+  // Display-only: F-Code never runs this. The user copies it into Terminal on their own Mac to authorise F-Code's key.
+  // Only a plain single-line ed25519 public key is interpolated (nothing that could break out of the quotes), and it is
+  // not appended twice.
+  const safePub = pub && /^ssh-ed25519 [A-Za-z0-9+/=]+( [\w.@-]+)?$/.test(pub) ? pub : ''
+  const authCmd = safePub
+    ? `mkdir -p ~/.ssh && chmod 700 ~/.ssh && (grep -qxF '${safePub}' ~/.ssh/authorized_keys 2>/dev/null || echo '${safePub}' >> ~/.ssh/authorized_keys) && chmod 600 ~/.ssh/authorized_keys`
+    : ''
   const color = mac.state === 'ready' ? 'var(--green)' : mac.state === 'connecting' ? 'var(--orange)' : mac.state === 'error' ? 'var(--red)' : 'var(--text-tertiary)'
 
   return (
@@ -524,7 +530,7 @@ function MacSettings({ copy, copied }: { copy: (t: string) => void; copied?: str
           Add passphrase
         </button>
       </div>
-      {mac.state !== 'ready' && pub && (
+      {mac.state !== 'ready' && authCmd && (
         <div className="cmd">
           <b>1. On the Mac, run this once in Terminal to authorise F-Code's key</b>
           <pre>
